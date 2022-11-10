@@ -1,4 +1,4 @@
-import 'package:app_delivery/home/home_page.dart';
+import 'package:app_delivery/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -53,7 +53,9 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           // most valuates
-          ItemPageBody(),
+          Expanded(child: SingleChildScrollView(
+            child: ItemPageBody(),
+          )),
         ],
       )
     );

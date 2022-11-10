@@ -39,6 +39,7 @@ class _ItemPageBodyState extends State<ItemPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // slider section
         Container(
           height: Dimentios.pageView,
           child: PageView.builder(
@@ -48,6 +49,7 @@ class _ItemPageBodyState extends State<ItemPageBody> {
               return _buildPageItem(position);
           }),
         ),
+        // dots
         DotsIndicator(
           dotsCount: 5,
           position: _currentPageValue,
@@ -57,7 +59,105 @@ class _ItemPageBodyState extends State<ItemPageBody> {
             activeSize: const Size(18.0, 9.0),
             activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
           ),
-        )
+        ),
+        SizedBox(height: Dimentios.height30,),
+        Container(
+          margin: EdgeInsets.only(left: Dimentios.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: "Popular"),
+              SizedBox(width: Dimentios.width10,),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3),
+                child: BigText(text: ".", color: Colors.black26,),
+              ),
+              SizedBox(width: Dimentios.width10,),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: SmallText(text: "Food pairing"),
+              ),
+            ],
+          ),
+        ),
+        // list of food 
+        ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: (context, index){
+            return Container(
+              margin: EdgeInsets.only(
+                left: Dimentios.width20, 
+                right: Dimentios.width20,
+                bottom: Dimentios.height10
+              ),
+              child: Row(
+                children: [
+                  // imagen section
+                  Container(
+                    width: Dimentios.listViewImgSize,
+                    height: Dimentios.listViewImgSize,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimentios.radius20),
+                      color: Colors.redAccent,
+                      image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage("assets/image/icecream1.png")
+                      )
+                    ),
+                  ),
+                  // text container
+                  Expanded(
+                    child: Container(
+                      height: Dimentios.listViewTextContSize,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          bottomRight: Radius.circular(Dimentios.radius20),
+                          topRight: Radius.circular(Dimentios.radius20),
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: Dimentios.width10, right: Dimentios.width10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BigText(text: "Sushi notorio de pescado fresco"),
+                            SizedBox(height: Dimentios.height10),
+                            SmallText(text: "Con verdura cocida y arroz"),
+                            SizedBox(height: Dimentios.height10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconAndTextWidget(
+                                  icon: Icons.circle_sharp, 
+                                  text: "Normal", 
+                                  iconColor: AppColors.iconColor1
+                                ),
+                                IconAndTextWidget(
+                                  icon: Icons.location_on, 
+                                  text: "1.7km", 
+                                  iconColor: AppColors.mainColor
+                                ),
+                                IconAndTextWidget(
+                                  icon: Icons.access_time_rounded, 
+                                  text: "32min", 
+                                  iconColor: AppColors.iconColor2
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            );
+          }
+        ),
       ],
     );
   }
