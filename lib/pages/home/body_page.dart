@@ -1,5 +1,6 @@
 import 'package:app_delivery/utils/colors.dart';
 import 'package:app_delivery/utils/dimentions.dart';
+import 'package:app_delivery/widgets/app_column.dart';
 import 'package:app_delivery/widgets/big_text.dart';
 import 'package:app_delivery/widgets/icon_text_widget.dart';
 import 'package:app_delivery/widgets/small_text.dart';
@@ -230,47 +231,7 @@ class _ItemPageBodyState extends State<ItemPageBody> {
               ),
               child: Container(
                 padding: EdgeInsets.only(top: Dimentios.height15, left: 15, right: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    BigText(text: "Orange drink"),
-                    SizedBox(height: Dimentios.height10,),
-                    Row(
-                      children: [
-                        Wrap(
-                          children: List.generate(5, (index) => Icon(Icons.star, size:15, color: AppColors.mainColor,))
-                        ),
-                        const SizedBox(width: 10,),
-                        SmallText(text: "4.5"),
-                        const SizedBox(width: 10,),
-                        SmallText(text: "1234"),
-                        const SizedBox(width: 10,),
-                        SmallText(text: "comments"),
-                      ],
-                    ),
-                    SizedBox(height: Dimentios.height20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconAndTextWidget(
-                          icon: Icons.circle_sharp, 
-                          text: "Normal", 
-                          iconColor: AppColors.iconColor1
-                        ),
-                        IconAndTextWidget(
-                          icon: Icons.location_on, 
-                          text: "1.7km", 
-                          iconColor: AppColors.mainColor
-                        ),
-                        IconAndTextWidget(
-                          icon: Icons.access_time_rounded, 
-                          text: "32min", 
-                          iconColor: AppColors.iconColor2
-                        )
-                      ],
-                    )
-                  ],
-                ),
+                child: AppColumn(text: "Oragne Drink"),
               ),
             ),
           )
